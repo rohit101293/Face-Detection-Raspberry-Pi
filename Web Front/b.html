@@ -1,0 +1,64 @@
+<html>
+<head>
+</head>
+<body>
+	<form action="1.php" method="post" onSubmit="return validate()" name="myform">
+		Username: <input type="text" name="user"><br/>
+		<span style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum 8 digits</span><br/>
+		Password: <input type="password" name="pass"><br/>
+		<span style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum 8 digits</span><br/>
+		Email : <input type="text" name="email"><br/>
+		<input type="submit" value="Submit">
+	</form>
+	<script>
+	function validate () 
+	{
+		var u = document.forms["myform"]["user"].value;
+        var p = document.forms["myform"]["pass"].value;
+        var c = document.forms["myform"]["email"].value;
+        if(u==""||u==null)
+        {
+        	alert("Enter username");
+        	return false;
+        }
+        else
+        {
+            letters=/^([a-zA-z0-9_\.\-]{8,})$/;
+        	if(u.match(letters)==null)
+        	{
+        		alert("Invalid username");
+        		return false;
+        	}
+        }
+        if(p==""||p==null)
+        {
+        	alert("Enter password");
+        	return false;
+        }
+        else
+        {
+        	letters=/^[a-zA-z0-9_\.\-\*\!\#]{8,}$/;
+        	if(p.match(letters)==null)
+        	{
+        		alert("Invalid Password");
+        		return false;
+        	}
+        }
+        if(c==""||c==null)
+        {
+        	alert("Enter Email");
+        	return false;
+        }
+        else
+        {
+        	letters=/^[a-zA-z0-9_\.\-]+\@[a-zA-z0-9\.]+\.[a-zA-Z]{2,4}$/;
+        	if(c.match(letters)==null)
+        	{
+        		alert("Invalid Email");
+        		return false;
+        	}
+        }
+	}
+	</script>
+</body>
+</html>
